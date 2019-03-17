@@ -1,0 +1,104 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Conditional Links\n"
+"POT-Creation-Date: 2019-02-24 18:51+0000\n"
+"PO-Revision-Date: 2019-02-24 18:51+0000\n"
+"Last-Translator: \n"
+"Language-Team: https://translate.azurecurve.co.uk/\n"
+"Language: en_US\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.2.1\n"
+"X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-KeywordsList: __;_e;esc_html__;esc_html_e\n"
+"X-Poedit-SearchPath-0: azrcrv-conditional-links.php\n"
+
+#: azrcrv-conditional-links.php:187
+msgid "Settings"
+msgstr ""
+
+#: azrcrv-conditional-links.php:204 azrcrv-conditional-links.php:357
+msgid "Conditional Links Settings"
+msgstr ""
+
+#: azrcrv-conditional-links.php:205 azrcrv-conditional-links.php:358
+msgid "Conditional Links"
+msgstr ""
+
+#: azrcrv-conditional-links.php:219
+msgid "You do not have sufficient permissions to access this page."
+msgstr ""
+
+#: azrcrv-conditional-links.php:230
+msgid "Site settings have been saved."
+msgstr ""
+
+#: azrcrv-conditional-links.php:246
+msgid ""
+"Conditional links to pages are added using the <strong>cpl</strong> "
+"shortcode and conditional links to posts are added using the <strong>cbl</"
+"strong> shortcodes. Valid formats for both cpl and cbl shortcodes are:"
+msgstr ""
+
+#: azrcrv-conditional-links.php:254
+msgid "Page Links"
+msgstr ""
+
+#: azrcrv-conditional-links.php:256 azrcrv-conditional-links.php:271
+msgid "Display Add Link?"
+msgstr ""
+
+#: azrcrv-conditional-links.php:258 azrcrv-conditional-links.php:264
+#: azrcrv-conditional-links.php:272 azrcrv-conditional-links.php:278
+msgid "Display Add/Edit Link?"
+msgstr ""
+
+#: azrcrv-conditional-links.php:263 azrcrv-conditional-links.php:277
+msgid "Display Edit Link?"
+msgstr ""
+
+#: azrcrv-conditional-links.php:269
+msgid "Blog Links"
+msgstr ""
+
+#: azrcrv-conditional-links.php:299
+msgid "You do not have sufficient permissions to perform this action."
+msgstr ""
+
+#: azrcrv-conditional-links.php:373 azrcrv-conditional-links.php:419
+msgid "You do not have permissions to perform this action"
+msgstr ""
+
+#: azrcrv-conditional-links.php:388
+msgid "Minimum Length"
+msgstr ""
+
+#: azrcrv-conditional-links.php:390
+msgid "Minimum comment length; set to 0 for no minimum"
+msgstr ""
+
+#: azrcrv-conditional-links.php:393
+msgid "Maximum Length"
+msgstr ""
+
+#: azrcrv-conditional-links.php:395
+msgid "Maximum comment length; set to 0 for no maximum"
+msgstr ""
+
+#: azrcrv-conditional-links.php:398
+msgid "Moderation Length"
+msgstr ""
+
+#: azrcrv-conditional-links.php:400
+msgid "Moderation comment length; set to 0 for no moderation"
+msgstr ""
+
+#: azrcrv-conditional-links.php:478 azrcrv-conditional-links.php:529
+msgid "Edit"
+msgstr ""
+
+#: azrcrv-conditional-links.php:484 azrcrv-conditional-links.php:535
+msgid "Add"
+msgstr ""
