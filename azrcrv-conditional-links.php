@@ -3,7 +3,7 @@
  * ------------------------------------------------------------------------------
  * Plugin Name: Conditional Links
  * Description: cl.
- * Version: 1.0.0
+ * Version: 1.0.1
  * Author: azurecurve
  * Author URI: https://development.azurecurve.co.uk/classicpress-plugins/
  * Plugin URI: https://development.azurecurve.co.uk/classicpress-plugins/conditional-links
@@ -17,13 +17,13 @@
  * ------------------------------------------------------------------------------
  */
 
-// include plugin menu
-require_once(dirname( __FILE__).'/pluginmenu/menu.php');
-
 // Prevent direct access.
 if (!defined('ABSPATH')){
 	die();
 }
+
+// include plugin menu
+require_once(dirname( __FILE__).'/pluginmenu/menu.php');
 
 /**
  * Setup registration activation hook, actions, filters and shortcodes.
@@ -280,7 +280,7 @@ function azrcrv_cl_display_options(){
 						</fieldset>
 					</td></tr>
 				</table>
-				<input type="submit" value="Save Changes" class="button-primary" />
+				<input type="submit" value="<?php esc_html_e('Submit', 'conditional-links'); ?>" class="button-primary"/>
 			</form>
 		</fieldset>
 	</div>

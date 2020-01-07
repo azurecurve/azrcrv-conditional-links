@@ -1,7 +1,8 @@
+#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Conditional Links\n"
-"POT-Creation-Date: 2019-02-24 18:51+0000\n"
+"POT-Creation-Date: 2020-01-05 13:09+0000\n"
 "PO-Revision-Date: 2019-02-24 18:51+0000\n"
 "Last-Translator: \n"
 "Language-Team: https://translate.azurecurve.co.uk/\n"
@@ -61,6 +62,10 @@ msgstr ""
 
 #: azrcrv-conditional-links.php:269
 msgid "Blog Links"
+msgstr ""
+
+#: azrcrv-conditional-links.php:283
+msgid "Submit"
 msgstr ""
 
 #: azrcrv-conditional-links.php:299
