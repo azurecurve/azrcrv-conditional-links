@@ -2,8 +2,8 @@
 /**
  * ------------------------------------------------------------------------------
  * Plugin Name: Conditional Links
- * Description: cl.
- * Version: 1.0.1
+ * Description: The cpl shortcode allows links to be generated when the page exists; allows index or other pages to be built before child or other linked pages. Adds anchor tags to valid links otherwise outputs plain text.
+ * Version: 1.1.0
  * Author: azurecurve
  * Author URI: https://development.azurecurve.co.uk/classicpress-plugins/
  * Plugin URI: https://development.azurecurve.co.uk/classicpress-plugins/conditional-links
@@ -24,6 +24,10 @@ if (!defined('ABSPATH')){
 
 // include plugin menu
 require_once(dirname( __FILE__).'/pluginmenu/menu.php');
+register_activation_hook(__FILE__, 'azrcrv_create_plugin_menu_cl');
+
+// include update client
+require_once(dirname(__FILE__).'/libraries/updateclient/UpdateClient.class.php');
 
 /**
  * Setup registration activation hook, actions, filters and shortcodes.
@@ -41,6 +45,7 @@ add_action('network_admin_menu', 'azrcrv_cl_create_network_admin_menu');
 add_action('network_admin_edit_azrcrv_cl_save_network_options', 'azrcrv_cl_save_network_options');
 add_action('wp_enqueue_scripts', 'azrcrv_cl_load_css');
 //add_action('the_posts', 'azrcrv_cl_check_for_shortcode');
+add_action('plugins_loaded', 'azrcrv_cl_load_languages');
 
 // add filters
 add_filter('plugin_action_links', 'azrcrv_cl_add_plugin_action_link', 10, 2);
@@ -52,6 +57,17 @@ add_shortcode('CPL', 'azc_cpl_shortcode');
 add_shortcode('cbl', 'azc_cbl_shortcode');
 add_shortcode('Cbl', 'azc_cbl_shortcode');
 add_shortcode('CBL', 'azc_cbl_shortcode');
+
+/**
+ * Load language files.
+ *
+ * @since 1.0.0
+ *
+ */
+function azrcrv_cl_load_languages() {
+    $plugin_rel_path = basename(dirname(__FILE__)).'/languages';
+    load_plugin_textdomain('azrcrv-cl', false, $plugin_rel_path);
+}
 
 /**
  * Check if shortcode on current page and then load css and jqeury.
@@ -224,7 +240,7 @@ function azrcrv_cl_display_options(){
 	?>
 	<div id="azrcrv-cl-general" class="wrap">
 		<fieldset>
-			<h2><?php echo esc_html(get_admin_page_title()); ?></h2>
+			<h1><?php echo esc_html(get_admin_page_title()); ?></h1>
 			<?php if(isset($_GET['options-updated'])){ ?>
 				<div class="notice notice-success is-dismissible">
 					<p><strong><?php esc_html_e('Site settings have been saved.', 'conditional-links') ?></strong></p>
@@ -376,7 +392,7 @@ function azrcrv_cl_network_settings(){
 	?>
 	<div id="azrcrv-cl-general" class="wrap">
 		<fieldset>
-			<h2><?php echo esc_html(get_admin_page_title()); ?></h2>
+			<h1><?php echo esc_html(get_admin_page_title()); ?></h1>
 			<form method="post" action="admin-post.php">
 				<input type="hidden" name="action" value="azrcrv_cl_save_network_options" />
 				<input name="page_options" type="hidden" value="smallest, largest, number" />
