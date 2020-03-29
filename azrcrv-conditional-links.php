@@ -6,7 +6,7 @@
  * Version: 1.1.1
  * Author: azurecurve
  * Author URI: https://development.azurecurve.co.uk/classicpress-plugins/
- * Plugin URI: https://development.azurecurve.co.uk/classicpress-plugins/conditional-links
+ * Plugin URI: https://development.azurecurve.co.uk/classicpress-plugins/conditional-links/
  * Text Domain: conditional-links
  * Domain Path: /languages
  * ------------------------------------------------------------------------------
@@ -200,7 +200,7 @@ function azrcrv_cl_add_plugin_action_link($links, $file){
 	}
 
 	if ($file == $this_plugin){
-		$settings_link = '<a href="'.get_bloginfo('wpurl').'/wp-admin/admin.php?page=azrcrv-cl">'.esc_html__('Settings' ,'conditional-links').'</a>';
+		$settings_link = '<a href="'.get_bloginfo('wpurl').'/wp-admin/admin.php?page=azrcrv-cl"><img src="'.plugins_url('/pluginmenu/images/Favicon-16x16.png', __FILE__).'" style="padding-top: 2px; margin-right: -5px; height: 16px; width: 16px;" alt="azurecurve" />'.esc_html__('Settings' ,'conditional-links').'</a>';
 		array_unshift($links, $settings_link);
 	}
 
