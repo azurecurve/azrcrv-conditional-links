@@ -3,7 +3,7 @@
  * ------------------------------------------------------------------------------
  * Plugin Name: Conditional Links
  * Description: The cpl shortcode allows links to be generated when the page exists; allows index or other pages to be built before child or other linked pages. Adds anchor tags to valid links otherwise outputs plain text.
- * Version: 1.1.3
+ * Version: 1.1.4
  * Author: azurecurve
  * Author URI: https://development.azurecurve.co.uk/classicpress-plugins/
  * Plugin URI: https://development.azurecurve.co.uk/classicpress-plugins/conditional-links/
@@ -146,44 +146,73 @@ function azrcrv_cl_set_default_options($networkwide){
 
 			foreach ($blog_ids as $blog_id){
 				switch_to_blog($blog_id);
-
-				if (get_option($option_name) === false){
-					if (get_option($old_option_name) === false){
-						add_option($option_name, $new_options);
-					}else{
-						add_option($option_name, get_option($old_option_name));
-					}
-				}
+				
+				azrcrv_cl_update_options($option_name, $new_options, false, $old_option_name);
 			}
 
 			switch_to_blog($original_blog_id);
 		}else{
-			if (get_option($option_name) === false){
-				if (get_option($old_option_name) === false){
-					add_option($option_name, $new_options);
-				}else{
-					add_option($option_name, get_option($old_option_name));
-				}
-			}
+			azrcrv_cl_update_options( $option_name, $new_options, false, $old_option_name);
 		}
 		if (get_site_option($option_name) === false){
-				if (get_option($old_option_name) === false){
-					add_option($option_name, $new_options);
-				}else{
-					add_option($option_name, get_option($old_option_name));
-				}
+			azrcrv_cl_update_options($option_name, $new_options, true, $old_option_name);
 		}
 	}
 	//set defaults for single site
 	else{
+		azrcrv_cl_update_options($option_name, $new_options, false, $old_option_name);
+	}
+}
+
+/**
+ * Update options.
+ *
+ * @since 1.1.4
+ *
+ */
+function azrcrv_cl_update_options($option_name, $new_options, $is_network_site, $old_option_name){
+	if ($is_network_site == true){
+		if (get_site_option($option_name) === false){
+			if (get_site_option($old_option_name) === false){
+				add_site_option($option_name, $new_options);
+			}else{
+				add_site_option($option_name, azrcrv_cl_update_default_options($new_options, get_site_option($old_option_name)));
+			}
+		}else{
+			update_site_option($option_name, azrcrv_cl_update_default_options($new_options, get_site_option($option_name)));
+		}
+	}else{
 		if (get_option($option_name) === false){
-				if (get_option($old_option_name) === false){
-					add_option($option_name, $new_options);
-				}else{
-					add_option($option_name, get_option($old_option_name));
-				}
+			if (get_option($old_option_name) === false){
+				add_option($option_name, $new_options);
+			}else{
+				add_option($option_name, azrcrv_cl_update_default_options($new_options, get_option($old_option_name)));
+			}
+		}else{
+			update_option($option_name, azrcrv_cl_update_default_options($new_options, get_option($option_name)));
 		}
 	}
+}
+
+
+/**
+ * Add default options to existing options.
+ *
+ * @since 1.1.4
+ *
+ */
+function azrcrv_cl_update_default_options( &$default_options, $current_options ) {
+    $default_options = (array) $default_options;
+    $current_options = (array) $current_options;
+    $updated_options = $current_options;
+    foreach ($default_options as $key => &$value) {
+        if (is_array( $value) && isset( $updated_options[$key ])){
+            $updated_options[$key] = azrcrv_cl_update_default_options($value, $updated_options[$key]);
+        } else {
+            $updated_options[$key] = $value;
+        }
+    }
+    return $updated_options;
 }
 
 /**
