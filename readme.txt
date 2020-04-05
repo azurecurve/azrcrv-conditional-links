@@ -1,12 +1,12 @@
 === Conditional Links ===
 
 Description:	The cpl shortcode allows links to be generated when the page exists; allows index or other pages to be built before child or other linked pages. Adds anchor tags to valid links otherwise outputs plain text.
-Version:		1.1.4
+Version:		1.1.5
 Tags:			page, pages, post, posts, link, shortcode
 Author:			azurecurve
 Author URI:		https://development.azurecurve.co.uk/
 Plugin URI:		https://development.azurecurve.co.uk/classicpress-plugins/conditional-links/
-Download link:	https://github.com/azurecurve/azrcrv-conditional-links/releases/download/v1.1.4/azrcrv-conditional-links.zip
+Download link:	https://github.com/azurecurve/azrcrv-conditional-links/releases/download/v1.1.5/azrcrv-conditional-links.zip
 Donate link:	https://development.azurecurve.co.uk/support-development/
 Requires PHP:	5.6
 Requires:		1.0.0
@@ -57,6 +57,11 @@ This plugin is developed for ClassicPress, but will likely work on WordPress.
 == Changelog ==
 
 # Changelog
+
+### [Version 1.1.5](https://github.com/azurecurve/azrcrv-conditional-links/releases/tag/v1.1.5)
+ * Fix bug with setting of default options.
+ * Fix bug with plugin menu.
+ * Update plugin menu css.
 
 ### [Version 1.1.4](https://github.com/azurecurve/azrcrv-conditional-links/releases/tag/v1.1.4)
  * Rewrite default option creation function to resolve several bugs.
