@@ -59,7 +59,7 @@ This plugin is developed for ClassicPress, but will likely work on WordPress.
 # Changelog
 
 ### [Version 1.1.6](https://github.com/azurecurve/azrcrv-conditional-links/releases/tag/v1.1.6)
- * Fix bugs with links to non-existant post/page showing slug instead of title or content.
+ * Fix bugs with links to non-existent post/page showing slug instead of title or content.
 
 ### [Version 1.1.5](https://github.com/azurecurve/azrcrv-conditional-links/releases/tag/v1.1.5)
  * Fix bug with setting of default options.
