@@ -3,7 +3,7 @@
  * ------------------------------------------------------------------------------
  * Plugin Name: Conditional Links
  * Description: The cpl shortcode allows links to be generated when the page exists; allows index or other pages to be built before child or other linked pages. Adds anchor tags to valid links otherwise outputs plain text.
- * Version: 1.1.5
+ * Version: 1.1.6
  * Author: azurecurve
  * Author URI: https://development.azurecurve.co.uk/classicpress-plugins/
  * Plugin URI: https://development.azurecurve.co.uk/classicpress-plugins/conditional-links/
@@ -497,12 +497,20 @@ function azrcrv_cl_save_network_options(){
 function azc_cpl_shortcode($atts, $content = null){
 	$args = shortcode_atts(array(
 		'slug' => '',
+		'title' => '',
 	), $atts);
 	$slug = $args['slug'];
+	$title = $args['title'];
 	
 	$slug = sanitize_text_field($slug);
 	if (strlen($slug)==0){
 		$slug=sanitize_text_field($content);
+	}
+	
+	if (strlen($title) == 0){
+		$title = $content;
+	}else{
+		$title = sanitize_text_field($title);
 	}
 	
 	global $wpdb;
@@ -523,7 +531,7 @@ function azc_cpl_shortcode($atts, $content = null){
 			}
 		}
 	}else{
-		$return .= $slug."</a>";
+		$return .= $title;
 		if (current_user_can('edit_posts') and $options['display_add_link'] == 1){
 			$return .= '&nbsp;<a href="'.$page_url.'wp-admin/post-new.php?post_type=page" class="azrcrv-cl-_admin">['.esc_html__('Add','azc_cl').']</a>';
 		}
@@ -547,11 +555,15 @@ function azc_cbl_shortcode($atts, $content = null){
 	$title = $args['title'];
 	
 	$slug = sanitize_text_field($slug);
-	if (strlen($slug)==0){
+	if (strlen($slug) == 0){
 		$slug=sanitize_text_field($content);
 	}
 	
-	$title = sanitize_text_field($title);
+	if (strlen($title) == 0){
+		$title = $content;
+	}else{
+		$title = sanitize_text_field($title);
+	}
 	
 	global $wpdb;
 	
@@ -574,7 +586,7 @@ function azc_cbl_shortcode($atts, $content = null){
 			}
 		}
 	}else{
-		$return .= $slug."</a>";
+		$return .= $title;
 		if (current_user_can('edit_posts') and $options['display_add_link'] == 1){
 			$return .= '&nbsp;<a href="'.$page_url.'wp-admin/post-new.php?post_type=page" class="azrcrv-cl-_admin">['.esc_html__('Add','azc_cl').']</a>';
 		}
