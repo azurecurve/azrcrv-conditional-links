@@ -3,7 +3,7 @@
  * ------------------------------------------------------------------------------
  * Plugin Name: Conditional Links
  * Description: The cpl shortcode allows links to be generated when the page exists; allows index or other pages to be built before child or other linked pages. Adds anchor tags to valid links otherwise outputs plain text.
- * Version: 1.1.6
+ * Version: 1.2.0
  * Author: azurecurve
  * Author URI: https://development.azurecurve.co.uk/classicpress-plugins/
  * Plugin URI: https://development.azurecurve.co.uk/classicpress-plugins/conditional-links/
@@ -36,17 +36,17 @@ require_once(dirname(__FILE__).'/libraries/updateclient/UpdateClient.class.php')
  *
  */
 // add actions
-add_action('admin_init', 'azrcrv_cl_set_default_options');
 add_action('admin_menu', 'azrcrv_cl_create_admin_menu');
 add_action('admin_post_azrcrv_cl_save_options', 'azrcrv_cl_save_options');
 add_action('network_admin_menu', 'azrcrv_cl_create_network_admin_menu');
 add_action('network_admin_edit_azrcrv_cl_save_network_options', 'azrcrv_cl_save_network_options');
-add_action('wp_enqueue_scripts', 'azrcrv_cl_load_css');
-//add_action('the_posts', 'azrcrv_cl_check_for_shortcode');
 add_action('plugins_loaded', 'azrcrv_cl_load_languages');
 
 // add filters
 add_filter('plugin_action_links', 'azrcrv_cl_add_plugin_action_link', 10, 2);
+add_filter('the_posts', 'azrcrv_cl_check_for_shortcode', 10, 2);
+add_filter('codepotent_update_manager_image_path', 'azrcrv_cl_custom_image_path');
+add_filter('codepotent_update_manager_image_url', 'azrcrv_cl_custom_image_url');
 
 // add shortcodes
 add_shortcode('cpl', 'azc_cpl_shortcode');
@@ -116,102 +116,52 @@ function azrcrv_cl_load_css(){
 }
 
 /**
- * Set default options for plugin.
+ * Custom plugin image path.
  *
- * @since 1.0.0
+ * @since 1.2.0
  *
  */
-function azrcrv_cl_set_default_options($networkwide){
-	
-	$option_name = 'azrcrv-cl';
-	$old_option_name = 'azc_cl';
-	
-	$new_options = array(
+function azrcrv_cl_custom_image_path($path){
+    if (strpos($path, 'azrcrv-conditional-links') !== false){
+        $path = plugin_dir_path(__FILE__).'assets/pluginimages';
+    }
+    return $path;
+}
+
+/**
+ * Custom plugin image url.
+ *
+ * @since 1.2.0
+ *
+ */
+function azrcrv_cl_custom_image_url($url){
+    if (strpos($url, 'azrcrv-conditional-links') !== false){
+        $url = plugin_dir_url(__FILE__).'assets/pluginimages';
+    }
+    return $url;
+}
+
+/**
+ * Get options including defaults.
+ *
+ * @since 1.2.0
+ *
+ */
+function azrcrv_cl_get_option($option_name){
+ 
+	$defaults = array(
 						'display_edit_link' => 1,
 						'display_add_link' => 1,
 						'blog_display_edit_link' => 1,
 						'blog_display_add_link' => 1,
-						'updated' => strtotime('2020-04-04'),
-			);
-	
-	// set defaults for multi-site
-	if (function_exists('is_multisite') && is_multisite()){
-		// check if it is a network activation - if so, run the activation function for each blog id
-		if ($networkwide){
-			global $wpdb;
+					);
 
-			$blog_ids = $wpdb->get_col("SELECT blog_id FROM $wpdb->blogs");
-			$original_blog_id = get_current_blog_id();
+	$options = get_option($option_name, $defaults);
 
-			foreach ($blog_ids as $blog_id){
-				switch_to_blog($blog_id);
-				
-				azrcrv_cl_update_options($option_name, $new_options, false, $old_option_name);
-			}
+	$options = wp_parse_args($options, $defaults);
 
-			switch_to_blog($original_blog_id);
-		}else{
-			azrcrv_cl_update_options( $option_name, $new_options, false, $old_option_name);
-		}
-		if (get_site_option($option_name) === false){
-			azrcrv_cl_update_options($option_name, $new_options, true, $old_option_name);
-		}
-	}
-	//set defaults for single site
-	else{
-		azrcrv_cl_update_options($option_name, $new_options, false, $old_option_name);
-	}
-}
+	return $options;
 
-/**
- * Update options.
- *
- * @since 1.1.4
- *
- */
-function azrcrv_cl_update_options($option_name, $new_options, $is_network_site, $old_option_name){
-	if ($is_network_site == true){
-		if (get_site_option($option_name) === false){
-			add_site_option($option_name, $new_options);
-		}else{
-			$options = get_site_option($option_name);
-			if (!isset($options['updated']) OR $options['updated'] < $new_options['updated'] ){
-				$options['updated'] = $new_options['updated'];
-				update_site_option($option_name, azrcrv_cl_update_default_options($options, $new_options));
-			}
-		}
-	}else{
-		if (get_option($option_name) === false){
-			add_option($option_name, $new_options);
-		}else{
-			$options = get_option($option_name);
-			if (!isset($options['updated']) OR $options['updated'] < $new_options['updated'] ){
-				$options['updated'] = $new_options['updated'];
-				update_option($option_name, azrcrv_cl_update_default_options($options, $new_options));
-			}
-		}
-	}
-}
-
-
-/**
- * Add default options to existing options.
- *
- * @since 1.1.4
- *
- */
-function azrcrv_cl_update_default_options( &$default_options, $current_options ) {
-    $default_options = (array) $default_options;
-    $current_options = (array) $current_options;
-    $updated_options = $current_options;
-    foreach ($default_options as $key => &$value) {
-        if (is_array( $value) && isset( $updated_options[$key])){
-            $updated_options[$key] = azrcrv_cl_update_default_options($value, $updated_options[$key]);
-        } else {
-			$updated_options[$key] = $value;
-        }
-    }
-    return $updated_options;
 }
 
 /**
@@ -228,7 +178,7 @@ function azrcrv_cl_add_plugin_action_link($links, $file){
 	}
 
 	if ($file == $this_plugin){
-		$settings_link = '<a href="'.get_bloginfo('wpurl').'/wp-admin/admin.php?page=azrcrv-cl"><img src="'.plugins_url('/pluginmenu/images/Favicon-16x16.png', __FILE__).'" style="padding-top: 2px; margin-right: -5px; height: 16px; width: 16px;" alt="azurecurve" />'.esc_html__('Settings' ,'conditional-links').'</a>';
+		$settings_link = '<a href="'.admin_url('admin.php?page=azrcrv-cl').'"><img src="'.plugins_url('/pluginmenu/images/Favicon-16x16.png', __FILE__).'" style="padding-top: 2px; margin-right: -5px; height: 16px; width: 16px;" alt="azurecurve" />'.esc_html__('Settings' ,'conditional-links').'</a>';
 		array_unshift($links, $settings_link);
 	}
 
@@ -264,7 +214,7 @@ function azrcrv_cl_display_options(){
     }
 	
 	// Retrieve plugin configuration options from database
-	$options = get_option('azrcrv-cl');
+	$options = azrcrv_cl_get_option('azrcrv-cl');
 	?>
 	<div id="azrcrv-cl-general" class="wrap">
 		<fieldset>
@@ -515,7 +465,7 @@ function azc_cpl_shortcode($atts, $content = null){
 	
 	global $wpdb;
 	
-	$options = get_option('azc_cpl');
+	$options = azrcrv_cl_get_option('azc_cpl');
 	
 	$page_url = trailingslashit(get_bloginfo('url'));
 
@@ -567,7 +517,7 @@ function azc_cbl_shortcode($atts, $content = null){
 	
 	global $wpdb;
 	
-	$options = get_option('azc_cpl');
+	$options = azrcrv_cl_get_option('azc_cpl');
 	
 	$page_url = trailingslashit(get_bloginfo('url'));
 
