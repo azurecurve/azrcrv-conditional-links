@@ -3,7 +3,7 @@
  * ------------------------------------------------------------------------------
  * Plugin Name: Conditional Links
  * Description: The cpl shortcode allows links to be generated when the page exists; allows index or other pages to be built before child or other linked pages. Adds anchor tags to valid links otherwise outputs plain text.
- * Version: 1.2.0
+ * Version: 1.2.1
  * Author: azurecurve
  * Author URI: https://development.azurecurve.co.uk/classicpress-plugins/
  * Plugin URI: https://development.azurecurve.co.uk/classicpress-plugins/conditional-links/
@@ -178,7 +178,7 @@ function azrcrv_cl_add_plugin_action_link($links, $file){
 	}
 
 	if ($file == $this_plugin){
-		$settings_link = '<a href="'.admin_url('admin.php?page=azrcrv-cl').'"><img src="'.plugins_url('/pluginmenu/images/Favicon-16x16.png', __FILE__).'" style="padding-top: 2px; margin-right: -5px; height: 16px; width: 16px;" alt="azurecurve" />'.esc_html__('Settings' ,'conditional-links').'</a>';
+		$settings_link = '<a href="'.admin_url('admin.php?page=azrcrv-cl').'"><img src="'.plugins_url('/pluginmenu/images/logo.svg', __FILE__).'" style="padding-top: 2px; margin-right: -5px; height: 16px; width: 16px;" alt="azurecurve" />'.esc_html__('Settings' ,'conditional-links').'</a>';
 		array_unshift($links, $settings_link);
 	}
 
@@ -218,7 +218,12 @@ function azrcrv_cl_display_options(){
 	?>
 	<div id="azrcrv-cl-general" class="wrap">
 		<fieldset>
-			<h1><?php echo esc_html(get_admin_page_title()); ?></h1>
+			<h1>
+				<?php
+					echo '<a href="https://development.azurecurve.co.uk/classicpress-plugins/"><img src="'.plugins_url('/pluginmenu/images/logo.svg', __FILE__).'" style="padding-right: 6px; height: 20px; width: 20px;" alt="azurecurve" /></a>';
+					esc_html_e(get_admin_page_title());
+				?>
+			</h1>
 			<?php if(isset($_GET['options-updated'])){ ?>
 				<div class="notice notice-success is-dismissible">
 					<p><strong><?php esc_html_e('Site settings have been saved.', 'conditional-links') ?></strong></p>
@@ -370,7 +375,12 @@ function azrcrv_cl_network_settings(){
 	?>
 	<div id="azrcrv-cl-general" class="wrap">
 		<fieldset>
-			<h1><?php echo esc_html(get_admin_page_title()); ?></h1>
+			<h1>
+				<?php
+					echo '<a href="https://development.azurecurve.co.uk/classicpress-plugins/"><img src="'.plugins_url('/pluginmenu/images/logo.svg', __FILE__).'" style="padding-right: 6px; height: 20px; width: 20px;" alt="azurecurve" /></a>';
+					esc_html_e(get_admin_page_title());
+				?>
+			</h1>
 			<form method="post" action="admin-post.php">
 				<input type="hidden" name="action" value="azrcrv_cl_save_network_options" />
 				<input name="page_options" type="hidden" value="smallest, largest, number" />
