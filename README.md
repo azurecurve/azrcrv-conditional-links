@@ -16,8 +16,6 @@ Shortcodes can be used in the following ways:
 
 This plugin is multisite compatible.
 
-== Installation ==
-
 # Installation Instructions
 
  * Download the latest release of the plugin from [GitHub](https://github.com/azurecurve/azrcrv-conditional-links/releases/latest/).
