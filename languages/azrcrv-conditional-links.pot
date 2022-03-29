@@ -2,108 +2,108 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Conditional Links\n"
-"POT-Creation-Date: 2020-01-05 13:09+0000\n"
+"POT-Creation-Date: 2021-12-27 17:51+0000\n"
 "PO-Revision-Date: 2019-02-24 18:51+0000\n"
 "Last-Translator: \n"
-"Language-Team: https://translate.azurecurve.co.uk/\n"
+"Language-Team: translate@azurecurve.co.uk\n"
 "Language: en_US\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.2.1\n"
-"X-Poedit-Basepath: ..\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.0.1\n"
+"X-Poedit-Basepath: ..\n"
 "X-Poedit-KeywordsList: __;_e;esc_html__;esc_html_e\n"
 "X-Poedit-SearchPath-0: azrcrv-conditional-links.php\n"
 
-#: azrcrv-conditional-links.php:187
+#: azrcrv-conditional-links.php:181
 msgid "Settings"
 msgstr ""
 
-#: azrcrv-conditional-links.php:204 azrcrv-conditional-links.php:357
+#: azrcrv-conditional-links.php:198 azrcrv-conditional-links.php:356
 msgid "Conditional Links Settings"
 msgstr ""
 
-#: azrcrv-conditional-links.php:205 azrcrv-conditional-links.php:358
+#: azrcrv-conditional-links.php:199 azrcrv-conditional-links.php:357
 msgid "Conditional Links"
 msgstr ""
 
-#: azrcrv-conditional-links.php:219
+#: azrcrv-conditional-links.php:213
 msgid "You do not have sufficient permissions to access this page."
 msgstr ""
 
-#: azrcrv-conditional-links.php:230
+#: azrcrv-conditional-links.php:229
 msgid "Site settings have been saved."
 msgstr ""
 
-#: azrcrv-conditional-links.php:246
+#: azrcrv-conditional-links.php:245
 msgid ""
 "Conditional links to pages are added using the <strong>cpl</strong> "
 "shortcode and conditional links to posts are added using the <strong>cbl</"
 "strong> shortcodes. Valid formats for both cpl and cbl shortcodes are:"
 msgstr ""
 
-#: azrcrv-conditional-links.php:254
+#: azrcrv-conditional-links.php:253
 msgid "Page Links"
 msgstr ""
 
-#: azrcrv-conditional-links.php:256 azrcrv-conditional-links.php:271
+#: azrcrv-conditional-links.php:255 azrcrv-conditional-links.php:270
 msgid "Display Add Link?"
 msgstr ""
 
-#: azrcrv-conditional-links.php:258 azrcrv-conditional-links.php:264
-#: azrcrv-conditional-links.php:272 azrcrv-conditional-links.php:278
+#: azrcrv-conditional-links.php:257 azrcrv-conditional-links.php:263
+#: azrcrv-conditional-links.php:271 azrcrv-conditional-links.php:277
 msgid "Display Add/Edit Link?"
 msgstr ""
 
-#: azrcrv-conditional-links.php:263 azrcrv-conditional-links.php:277
+#: azrcrv-conditional-links.php:262 azrcrv-conditional-links.php:276
 msgid "Display Edit Link?"
 msgstr ""
 
-#: azrcrv-conditional-links.php:269
+#: azrcrv-conditional-links.php:268
 msgid "Blog Links"
 msgstr ""
 
-#: azrcrv-conditional-links.php:283
+#: azrcrv-conditional-links.php:282
 msgid "Submit"
 msgstr ""
 
-#: azrcrv-conditional-links.php:299
+#: azrcrv-conditional-links.php:298
 msgid "You do not have sufficient permissions to perform this action."
 msgstr ""
 
-#: azrcrv-conditional-links.php:373 azrcrv-conditional-links.php:419
+#: azrcrv-conditional-links.php:372 azrcrv-conditional-links.php:423
 msgid "You do not have permissions to perform this action"
 msgstr ""
 
-#: azrcrv-conditional-links.php:388
+#: azrcrv-conditional-links.php:392
 msgid "Minimum Length"
 msgstr ""
 
-#: azrcrv-conditional-links.php:390
+#: azrcrv-conditional-links.php:394
 msgid "Minimum comment length; set to 0 for no minimum"
 msgstr ""
 
-#: azrcrv-conditional-links.php:393
+#: azrcrv-conditional-links.php:397
 msgid "Maximum Length"
 msgstr ""
 
-#: azrcrv-conditional-links.php:395
+#: azrcrv-conditional-links.php:399
 msgid "Maximum comment length; set to 0 for no maximum"
 msgstr ""
 
-#: azrcrv-conditional-links.php:398
+#: azrcrv-conditional-links.php:402
 msgid "Moderation Length"
 msgstr ""
 
-#: azrcrv-conditional-links.php:400
+#: azrcrv-conditional-links.php:404
 msgid "Moderation comment length; set to 0 for no moderation"
 msgstr ""
 
-#: azrcrv-conditional-links.php:478 azrcrv-conditional-links.php:529
+#: azrcrv-conditional-links.php:490 azrcrv-conditional-links.php:545
 msgid "Edit"
 msgstr ""
 
-#: azrcrv-conditional-links.php:484 azrcrv-conditional-links.php:535
+#: azrcrv-conditional-links.php:496 azrcrv-conditional-links.php:551
 msgid "Add"
 msgstr ""
