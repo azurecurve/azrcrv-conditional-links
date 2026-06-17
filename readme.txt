@@ -45,6 +45,9 @@ This plugin is developed for ClassicPress, but will likely work on WordPress.
 
 # Changelog
 
+### Version 2.0.1
+ * Fix bug with shortcode check.
+ 
 ### Version 2.0.0
  * Restructured plugin to match house standard (namespaced PHP, split includes, assets layout).
  * Introduced PHP namespace `azurecurve\ConditionalLinks`.

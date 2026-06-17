@@ -19,7 +19,7 @@ function check_for_shortcode( $posts, $query ) {
 	$shortcodes = array(
 		'cpl',       'Cpl',       'CPL',
 		'cbl',       'Cbl',       'CBL',
-		'cond-link', 'Cond-link', 'Cond-Link',, 'COND-LINK',
+		'cond-link', 'Cond-link', 'Cond-Link', 'COND-LINK',
 	);
 
 	$found = false;
