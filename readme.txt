@@ -45,10 +45,14 @@ This plugin is developed for ClassicPress, but will likely work on WordPress.
 
 # Changelog
 
-### Version 2.0.1
+### [Version 2.0.2](https://github.com/azurecurve/azrcrv-conditional-links/releases/tag/v2.0.2)
+ * Upgrade UpdateClient.
+ * Fix issue with plugin images.
+ 
+### [Version 2.0.1](https://github.com/azurecurve/azrcrv-conditional-links/releases/tag/v2.0.1)
  * Fix bug with shortcode check.
  
-### Version 2.0.0
+### [Version 2.0.0](https://github.com/azurecurve/azrcrv-conditional-links/releases/tag/v2.0.0)
  * Restructured plugin to match house standard (namespaced PHP, split includes, assets layout).
  * Introduced PHP namespace `azurecurve\ConditionalLinks`.
  * Replaced legacy pluginmenu with new azurecurve menu system.
