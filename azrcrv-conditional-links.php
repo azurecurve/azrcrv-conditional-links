@@ -3,9 +3,9 @@
  * ------------------------------------------------------------------------------
  * Plugin Name:		Conditional Links
  * Description:		The cpl shortcode allows links to be generated when the page exists; the cbl shortcode for posts; and the cond-link shortcode for any post type. Adds anchor tags to valid links otherwise outputs plain text.
- * Version:			2.0.2
+ * Version:			2.0.3
  * Requires CP:		1.0
- * Requires PHP:	7.4
+ * Requires PHP:	8.2
  * Author:			azurecurve
  * Author URI:		https://development.azurecurve.co.uk/classicpress-plugins/
  * Plugin URI:		https://development.azurecurve.co.uk/classicpress-plugins/conditional-links/

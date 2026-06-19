@@ -9,6 +9,13 @@
 namespace azurecurve\ConditionalLinks;
 
 /**
+ * Prevent direct access.
+ */
+if ( ! defined( 'ABSPATH' ) ) {
+	die();
+}
+
+/**
  * Setup registration activation hook, actions, filters and shortcodes.
  */
 

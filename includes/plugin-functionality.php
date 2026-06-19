@@ -9,6 +9,13 @@
 namespace azurecurve\ConditionalLinks;
 
 /**
+ * Prevent direct access.
+ */
+if ( ! defined( 'ABSPATH' ) ) {
+	die();
+}
+
+/**
  * Check whether shortcode is present and if so enqueue styles.
  */
 function check_for_shortcode( $posts, $query ) {

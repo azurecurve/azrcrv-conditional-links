@@ -9,6 +9,13 @@
 namespace azurecurve\ConditionalLinks;
 
 /**
+ * Prevent direct access.
+ */
+if ( ! defined( 'ABSPATH' ) ) {
+	die();
+}
+
+/**
  * Load language files.
  */
 function load_languages() {

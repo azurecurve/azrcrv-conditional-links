@@ -9,6 +9,13 @@
 namespace azurecurve\ConditionalLinks;
 
 /**
+ * Prevent direct access.
+ */
+if ( ! defined( 'ABSPATH' ) ) {
+	die();
+}
+
+/**
  * Get options including defaults.
  */
 function get_option_with_defaults( $option_name ) {

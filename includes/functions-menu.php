@@ -9,6 +9,13 @@
 namespace azurecurve\ConditionalLinks;
 
 /**
+ * Prevent direct access.
+ */
+if ( ! defined( 'ABSPATH' ) ) {
+	die();
+}
+
+/**
  * Add action link on plugins page.
  */
 function add_plugin_action_link( $links, $file ) {

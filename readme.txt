@@ -45,6 +45,10 @@ This plugin is developed for ClassicPress, but will likely work on WordPress.
 
 # Changelog
 
+### [Version 2.0.3](https://github.com/azurecurve/azrcrv-conditional-links/releases/tag/v2.0.3)
+ * Add direct access check to php files.
+ * Fix plugin icon and banners.
+ 
 ### [Version 2.0.2](https://github.com/azurecurve/azrcrv-conditional-links/releases/tag/v2.0.2)
  * Upgrade UpdateClient.
  * Fix issue with plugin images.
