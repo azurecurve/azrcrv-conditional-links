@@ -45,6 +45,9 @@ This plugin is developed for ClassicPress, but will likely work on WordPress.
 
 # Changelog
 
+### [Version 2.0.4](https://github.com/azurecurve/azrcrv-conditional-links/releases/tag/v2.0.4)
+ * Restore missing azurecurve-menu-tabs-output file.
+ 
 ### [Version 2.0.3](https://github.com/azurecurve/azrcrv-conditional-links/releases/tag/v2.0.3)
  * Add direct access check to php files.
  * Fix plugin icon and banners.

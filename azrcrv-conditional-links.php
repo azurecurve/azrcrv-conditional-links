@@ -3,7 +3,7 @@
  * ------------------------------------------------------------------------------
  * Plugin Name:		Conditional Links
  * Description:		The cpl shortcode allows links to be generated when the page exists; the cbl shortcode for posts; and the cond-link shortcode for any post type. Adds anchor tags to valid links otherwise outputs plain text.
- * Version:			2.0.3
+ * Version:			2.0.4
  * Requires CP:		1.0
  * Requires PHP:	8.2
  * Author:			azurecurve
