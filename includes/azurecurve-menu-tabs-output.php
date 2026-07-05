@@ -54,7 +54,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 ?>
 <div class='azrcrv-donate'>
 	<?php
-		esc_html_e( 'Support', 'azrcrv-cv' );
+		esc_html_e( 'Support', 'azrcrv-cl' );
 	?>
 	azurecurve | Development
 	<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
@@ -65,7 +65,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	</form>
 	<span>
 		<?php
-		esc_html_e( 'You can help support the development of our free plugins by donating a small amount of money.', 'azrcrv-cv' );
+		esc_html_e( 'You can help support the development of our free plugins by donating a small amount of money.', 'azrcrv-cl' );
 		?>
 	</span>
 </div>
